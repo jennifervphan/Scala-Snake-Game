@@ -3,7 +3,7 @@ package game
 import org.scalajs.dom
 import dom.{CanvasRenderingContext2D, document, html}
 import game.Direction.{DOWN, LEFT, RIGHT, UP}
-import game.entities.{Food, WormCube}
+import game.entities.{Food, Head, WormCube}
 import org.scalajs.dom.ext.KeyCode
 
 object MainGame {
@@ -13,7 +13,7 @@ object MainGame {
   var time = 0
   var gameOver = false
   var foods : Seq[Food] = Seq.empty
-  val worm = new Worm(new WormCube(6, 1), Seq(new WormCube(5, 1),new WormCube(4, 1), new WormCube(3, 1), new WormCube(2, 1), new WormCube(1, 1)).reverse)
+  val worm = new Worm(new Head(6, 1), Seq(new WormCube(5, 1),new WormCube(4, 1), new WormCube(3, 1), new WormCube(2, 1), new WormCube(1, 1)).reverse)
   var score = 0
   var speed = 1
   var intervalID = 0

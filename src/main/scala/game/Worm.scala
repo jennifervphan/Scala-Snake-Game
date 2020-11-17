@@ -1,11 +1,11 @@
 package game
 
 import game.Direction.{DOWN, Direction, LEFT, RIGHT, UP}
-import game.entities.{Food, WormCube}
+import game.entities.{Food, Head, WormCube}
 import org.scalajs.dom.CanvasRenderingContext2D
 
-class Worm(initHead: WormCube, initBody: Seq[WormCube]) {
-  var head: WormCube = initHead
+class Worm(initHead: Head, initBody: Seq[WormCube]) {
+  var head: Head = initHead
   var body: Seq[WormCube] = initBody
   var digestingFood: Seq[Food] = Seq.empty
   var direction: Direction = RIGHT
@@ -30,16 +30,16 @@ class Worm(initHead: WormCube, initBody: Seq[WormCube]) {
 
     direction match {
       case RIGHT => {
-        head = new WormCube(head.getX() + 1, head.getY())
+        head = new Head(head.getX() + 1, head.getY())
       }
       case LEFT => {
-        head = new WormCube(head.getX() - 1, head.getY())
+        head = new Head(head.getX() - 1, head.getY())
       }
       case DOWN => {
-        head = new WormCube(head.getX(), head.getY() + 1)
+        head = new Head(head.getX(), head.getY() + 1)
       }
       case UP => {
-        head = new WormCube(head.getX(), head.getY() - 1)
+        head = new Head(head.getX(), head.getY() - 1)
       }
     }
   }
@@ -65,7 +65,7 @@ class Worm(initHead: WormCube, initBody: Seq[WormCube]) {
     }
   }
 
-  def getHead(): WormCube = head
+  def getHead(): Head = head
 
   def eat(): Unit = {
     digestingFood = digestingFood :+ new Food(head.getX(), head.getY())

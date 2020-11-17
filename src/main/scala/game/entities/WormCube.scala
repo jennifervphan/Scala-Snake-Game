@@ -8,8 +8,9 @@ class WormCube (x: Int, y: Int) {
     ctx.fillStyle = "#B0762A"
     ctx.strokeStyle = "#734508"
 
-    ctx.fillRect(15 * x, 15 * y, 15, 15)
-    ctx.strokeRect(15 * x, 15 * y, 15, 15)
+    ctx.beginPath()
+    ctx.arc(15 * x + 7, 15 * y + 7, 7, 0, 2*Math.PI)
+    ctx.fill()
   }
 
   def getX() : Int = x
