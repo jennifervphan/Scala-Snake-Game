@@ -1,4 +1,4 @@
-package game
+package game.entities
 
 import org.scalajs.dom.CanvasRenderingContext2D
 
@@ -12,11 +12,8 @@ class WormCube (x: Int, y: Int) {
     ctx.strokeRect(15 * x, 15 * y, 15, 15)
   }
 
-  def getX() : Int = {
-    return x
-  }
+  def getX() : Int = x
 
-  def getY() : Int = {
-    return y
-  }
+
+  def getY() : Int = y
 }
