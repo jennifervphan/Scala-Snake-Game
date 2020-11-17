@@ -15,11 +15,11 @@ object MainGame {
   var foods : Seq[Food] = Seq.empty
   val worm = new Worm(new Head(6, 1), Seq(new WormCube(5, 1),new WormCube(4, 1), new WormCube(3, 1), new WormCube(2, 1), new WormCube(1, 1)).reverse)
   var score = 0
-  var speed = 1
+  var speed = 200
   var intervalID = 0
 
   def main(args: Array[String]): Unit =  {
-    intervalID = dom.window.setInterval(drawCanvas _, 200)
+    intervalID = dom.window.setInterval(drawCanvas _, speed)
 
     document.onkeydown =
       (e: dom.KeyboardEvent) => {
@@ -62,6 +62,10 @@ object MainGame {
       worm.eat()
       score += 1
       spawnNewFood()
+
+      dom.window.clearInterval(intervalID)
+      speed = Math.round(speed/1.05f)
+      intervalID = dom.window.setInterval(drawCanvas _, speed)
     }
 
     context.fillStyle = "white"

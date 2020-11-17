@@ -45,8 +45,8 @@ class Worm(initHead: Head, initBody: Seq[WormCube]) {
   }
 
   def checkForCollision(canvasLength: Int): Boolean = {
-    if ( head.getX() * 15 > canvasLength || head.getX() < 0) return true
-    if ( head.getY() * 15 > canvasLength || head.getY() < 0) return true
+    if ( head.getX() * 15 >= canvasLength || head.getX() < 0) return true
+    if ( head.getY() * 15 >= canvasLength || head.getY() < 0) return true
     if (body.exists(part => part.getX() == head.getX() && part.getY() == head.getY())) return true
 
     false
